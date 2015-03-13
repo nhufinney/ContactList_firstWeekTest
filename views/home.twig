@@ -1,0 +1,41 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <title>List of Contacts</title>
+</head>
+<body>
+
+  <div class="container">
+
+          {% if contacts is empty %}
+                <h4>You do not have any contacts</h4>
+          {% endif %}
+
+          {% if contacts is not empty %}
+                <h3>List of your contacts</h3>
+
+                <ul>
+
+                  {% for contact in contacts %}
+                  <br>
+                  <br>
+                  <li>Name: {{contact.getName}}</li>
+                  <li>Phone: {{contact.getPhone}}</li>
+                  <li>Address: {{contact.getAddress}}</li>
+                  <br>
+                  <br>
+                  {% endfor %}
+              </ul>
+
+          {% endif %}
+
+          <br>
+          <p><a href="/create_new">Create a new contact</a></p>
+          <br>
+          <br>
+          {% if contacts is not empty %}
+          <p><a href="/delete">Delete all of your contacts</a><p>
+          {% endif %}
+      </div>
+  </body>
+</html>
